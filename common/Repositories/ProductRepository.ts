@@ -1,9 +1,13 @@
 import axios from 'axios';
+import {db} from '../Connection'
 
 async function getproduct()  {
     console.log("repo");
 
+    const entries =  await db.query('Select * from dbo.Item');
+    console.log("data", entries[0]);
     return await axios.get(`https://jsonplaceholder.typicode.com/posts`);
+
     
 };
 export default getproduct;
